@@ -1,7 +1,7 @@
-import jimp from 'jimp';
-import BaseBackend from './base';
-import requestApi from '../utils/request-api';
+import sharp from 'sharp';
 import createBrowserstackStatus from '../utils/create-browserstack-status';
+import requestApi from '../utils/request-api';
+import BaseBackend from './base';
 
 
 const TESTS_TIMEOUT = process.env['BROWSERSTACK_TEST_TIMEOUT'] || 1800;
@@ -112,10 +112,10 @@ export default class JSTestingBackend extends BaseBackend {
     }
 
     async takeScreenshot (id, screenshotPath) {
-        var buffer = await requestApi(BROWSERSTACK_API_PATHS.screenshot(this.workers[id].id));
-        var image  = await jimp.read(buffer);
+        var jpeg = await requestApi(BROWSERSTACK_API_PATHS.screenshot(this.workers[id].id));
 
-        await image.writeAsync(screenshotPath);
+
+        await sharp(jpeg).toFile(screenshotPath);
     }
 
     async resizeWindow (id) {

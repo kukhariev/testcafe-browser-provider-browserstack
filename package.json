@@ -35,14 +35,14 @@
     "dedent": "^0.7.0",
     "desired-capabilities": "^0.1.0",
     "firefox-profile": "^4.2.2",
-    "jimp": "^0.16.1",
     "lodash": "^4.17.15",
     "mime-db": "^1.43.0",
     "os-family": "^1.0.0",
     "pinkie": "^2.0.4",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "tmp": "0.0.31"
+    "sharp": "^0.30.7",
+    "tmp": "0.2.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
